@@ -1,6 +1,17 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+.grid-setup {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.setup {
+    margin: 10px;
 }
 
 #container {

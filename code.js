@@ -2,15 +2,30 @@
 
 const container = document.querySelector('#container');
 
-// define square
+// choose how many squares are desired
 
-// run code to put squares into grid
+const btnSquareNum = document.getElementById('square-btn');
 
-// run this for each row and each column, so they are equal
+btnSquareNum.addEventListener('click', () => {
+    const inputSquareNum = document.getElementById('square-num');
+
+    if (inputSquareNum.value > 100) {
+        alert('Max 100 squres allowed! Try again.');
+    } else {
+        const squares = inputSquareNum.value;
+        console.log(squares);
+        inputSquareNum.value = '';
+    }
+});
+
+// make a grid
+
+
 
 for (let i = 0; i < 8; i++) {
     const row = document.createElement('div');
     container.appendChild(row);
+
     for (let i = 0; i < 8; i++) {
         console.log('add');
         const square = document.createElement('div');
