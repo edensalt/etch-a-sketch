@@ -2,11 +2,24 @@
 
 const container = document.querySelector('#container');
 
-// choose how many squares are desired
+let squares = 16;
+
+// make init grid
+
+for (let i = 0; i < squares; i++) {
+    const row = document.createElement('div');
+    container.appendChild(row);
+
+    for (let i = 0; i < squares; i++) {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        row.appendChild(square);
+    }
+}
+
+// Update size of grid based on submitted number
 
 const btnSquareNum = document.getElementById('square-btn');
-
-let squares = 16;
 
 btnSquareNum.addEventListener('click', () => {
     const inputSquareNum = document.getElementById('square-num');
@@ -45,16 +58,3 @@ btnSquareNum.addEventListener('click', () => {
         }
     }
 });
-
-// make init grid
-
-for (let i = 0; i < squares; i++) {
-    const row = document.createElement('div');
-    container.appendChild(row);
-
-    for (let i = 0; i < squares; i++) {
-        const square = document.createElement('div');
-        square.classList.add('square');
-        row.appendChild(square);
-    }
-}
