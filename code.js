@@ -6,19 +6,25 @@ const container = document.querySelector('#container');
 
 const btnSquareNum = document.getElementById('square-btn');
 
-let squares = 10;
+let squares = 16;
 
 btnSquareNum.addEventListener('click', () => {
     const inputSquareNum = document.getElementById('square-num');
 
     if (inputSquareNum.value > 100) {
         alert('Max 100 squres allowed! Try again.');
+
+    } else if (inputSquareNum.value == 0) {
+        alert('Your grid needs at least 1 square (though we think that would be boring...) Try again.');
+
+    } else if (inputSquareNum.value < 0) {
+    alert("Negative grids aren't a thing my friend. Try again.");
+
     } else {
 
         //Define new number of squares for the grid
         squares = parseInt(inputSquareNum.value);
-        console.log(squares);
-        inputSquareNum.value = '';
+        inputSquareNum.value = squares;
 
         // Remove old grid
 
@@ -32,7 +38,6 @@ btnSquareNum.addEventListener('click', () => {
             container.appendChild(row);
         
             for (let i = 0; i < squares; i++) {
-                console.log('add');
                 const square = document.createElement('div');
                 square.classList.add('square');
                 row.appendChild(square);
@@ -48,7 +53,6 @@ for (let i = 0; i < squares; i++) {
     container.appendChild(row);
 
     for (let i = 0; i < squares; i++) {
-        console.log('add');
         const square = document.createElement('div');
         square.classList.add('square');
         row.appendChild(square);
