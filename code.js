@@ -9,6 +9,8 @@ let squares = 16;
 
 // make init grid
 
+const originalArray = [];
+
 for (let i = 0; i < squares; i++) { // push into array??
     const row = document.createElement('div');
     row.id = `row ${i}`;
@@ -23,10 +25,9 @@ for (let i = 0; i < squares; i++) { // push into array??
         square.style.width = `${(600 / squares)}px`;
         square.classList.add('square');
         row.appendChild(square);
-       // return square;
+        originalArray.push(square);
     }
 
-   // return square;
 }
 
 // Update size of grid based on submitted number
@@ -51,12 +52,14 @@ btnSquareNum.addEventListener('click', () => {
         squares = parseInt(inputSquareNum.value);
         inputSquareNum.value = squares;
 
-        // Remove old grid
-
+        // Remove old grid and reset array
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         };
-        
+
+        //Set new array for draw feature
+        newArray = [];
+
         //Update grid
         for (let i = 0; i < squares; i++) {
             const row = document.createElement('div');
@@ -70,9 +73,22 @@ btnSquareNum.addEventListener('click', () => {
                 square.style.width = `${(600 / squares)}px`;
                 square.classList.add('square');
                 row.appendChild(square);
+                newArray.push(square);
             }
         }
     }
+
+    for (let i = 0; i < newArray.length; i++) {
+        newArray[i].addEventListener("mouseover", function() {
+            this.style.backgroundColor = "black";
+        });
+    }
+
 });
 
 // Change color to black when hovering
+for (let i = 0; i < originalArray.length; i++) {
+    originalArray[i].addEventListener("mouseover", function() {
+        this.style.backgroundColor = "black";
+    });
+}
