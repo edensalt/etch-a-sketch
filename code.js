@@ -1,6 +1,10 @@
-// define container
+// define container and get its style
 
 const container = document.querySelector('#container');
+const containerStyle = window.getComputedStyle(container);
+const containerHeight = containerStyle.getPropertyValue('height');
+// const containerHeightNum = containerHeight
+const containerWidth = containerStyle.getPropertyValue('width');
 
 let squares = 16;
 
@@ -8,10 +12,14 @@ let squares = 16;
 
 for (let i = 0; i < squares; i++) {
     const row = document.createElement('div');
+    row.style.height = `${(600 / squares)}px`; // maybe to get the value, you need to remove the last 2 letters in the string
+    row.style.width = '600px';
     container.appendChild(row);
 
     for (let i = 0; i < squares; i++) {
         const square = document.createElement('div');
+        square.style.height = `${(600 / squares)}px`;
+        square.style.width = `${(600 / squares)}px`;
         square.classList.add('square');
         row.appendChild(square);
     }
@@ -48,10 +56,14 @@ btnSquareNum.addEventListener('click', () => {
         //Update grid
         for (let i = 0; i < squares; i++) {
             const row = document.createElement('div');
+            row.style.height = `${(600 / squares)}px`; // maybe to get the value, you need to remove the last 2 letters in the string
+            row.style.width = '600px';
             container.appendChild(row);
         
             for (let i = 0; i < squares; i++) {
                 const square = document.createElement('div');
+                square.style.height = `${(600 / squares)}px`;
+                square.style.width = `${(600 / squares)}px`;
                 square.classList.add('square');
                 row.appendChild(square);
             }
