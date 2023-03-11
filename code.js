@@ -13,14 +13,12 @@ const originalArray = [];
 
 for (let i = 0; i < squares; i++) { // push into array??
     const row = document.createElement('div');
-    row.id = `row ${i}`;
     row.style.height = `${(600 / squares)}px`; // maybe to get the value, you need to remove the last 2 letters in the string
     row.style.width = '600px';
     container.appendChild(row);
 
     for (let i = 0; i < squares; i++) {
         const square = document.createElement('div');
-        square.id = `square ${i}`;
         square.style.height = `${(600 / squares)}px`;
         square.style.width = `${(600 / squares)}px`;
         square.classList.add('square');
@@ -79,8 +77,10 @@ btnSquareNum.addEventListener('click', () => {
     }
 
     for (let i = 0; i < newArray.length; i++) {
+        let transparencyPercent = 0;
         newArray[i].addEventListener("mouseover", function() {
-            this.style.backgroundColor = "black";
+            transparencyPercent += 0.25;
+            this.style.backgroundColor = "rgba(0, 0, 0, " + transparencyPercent +")";
         });
     }
 
@@ -88,7 +88,9 @@ btnSquareNum.addEventListener('click', () => {
 
 // Change color to black when hovering
 for (let i = 0; i < originalArray.length; i++) {
+    let transparencyPercent = 0;
     originalArray[i].addEventListener("mouseover", function() {
-        this.style.backgroundColor = "black";
+        transparencyPercent += 0.25;
+        this.style.backgroundColor = "rgba(0, 0, 0, " + transparencyPercent +")";
     });
 }
