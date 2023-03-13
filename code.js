@@ -83,14 +83,18 @@ btnSquareNum.addEventListener('click', () => {
             this.style.backgroundColor = "rgba(0, 0, 0, " + transparencyPercent +")";
         });
     }
+    
+    const black = document.getElementById('black');
 
-    const clear = document.getElementById('clear');
-
-    clear.addEventListener('click', () => {
+    black.addEventListener('click', () => {
         for (let i = 0; i < newArray.length; i++) {
-            newArray[i].style.backgroundColor = "rgba(0, 0, 0, 0)";
-            };
-        });
+            let transparencyPercent = 0;
+            newArray[i].addEventListener("mouseover", function() {
+                transparencyPercent += 0.25;
+                this.style.backgroundColor = "rgba(0, 0, 0, " + transparencyPercent +")";
+            });
+        }
+    });
 
     const erase = document.getElementById('erase');
 
@@ -102,6 +106,14 @@ btnSquareNum.addEventListener('click', () => {
         }
     });
 
+    const clear = document.getElementById('clear');
+
+    clear.addEventListener('click', () => {
+        for (let i = 0; i < newArray.length; i++) {
+            newArray[i].style.backgroundColor = "rgba(0, 0, 0, 0)";
+            };
+        });
+
 });
 
 // Change color to black when hovering
@@ -112,6 +124,18 @@ for (let i = 0; i < originalArray.length; i++) {
         this.style.backgroundColor = "rgba(0, 0, 0, " + transparencyPercent +")";
     });
 }
+
+const black = document.getElementById('black');
+
+black.addEventListener('click', () => {
+    for (let i = 0; i < originalArray.length; i++) {
+        let transparencyPercent = 0;
+        originalArray[i].addEventListener("mouseover", function() {
+            transparencyPercent += 0.25;
+            this.style.backgroundColor = "rgba(0, 0, 0, " + transparencyPercent +")";
+        });
+    }
+});
 
 const clear = document.getElementById('clear');
 
