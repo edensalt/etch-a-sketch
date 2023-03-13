@@ -11,9 +11,9 @@ let squares = 16;
 
 const originalArray = [];
 
-for (let i = 0; i < squares; i++) { // push into array??
+for (let i = 0; i < squares; i++) {
     const row = document.createElement('div');
-    row.style.height = `${(600 / squares)}px`; // maybe to get the value, you need to remove the last 2 letters in the string
+    row.style.height = `${(600 / squares)}px`;
     row.style.width = '600px';
     container.appendChild(row);
 
@@ -36,7 +36,7 @@ btnSquareNum.addEventListener('click', () => {
     const inputSquareNum = document.getElementById('square-num');
 
     if (inputSquareNum.value > 100) {
-        alert('Max 100 squres allowed! Try again.');
+        alert('Max 100 squares allowed! Try again.');
 
     } else if (inputSquareNum.value == 0) {
         alert('Your grid needs at least 1 square (though we think that would be boring...) Try again.');
@@ -84,6 +84,14 @@ btnSquareNum.addEventListener('click', () => {
         });
     }
 
+    const clear = document.getElementById('clear');
+
+    clear.addEventListener('click', () => {
+        for (let i = 0; i < newArray.length; i++) {
+            newArray[i].style.backgroundColor = "rgba(0, 0, 0, 0)";
+            };
+        });
+
 });
 
 // Change color to black when hovering
@@ -94,3 +102,11 @@ for (let i = 0; i < originalArray.length; i++) {
         this.style.backgroundColor = "rgba(0, 0, 0, " + transparencyPercent +")";
     });
 }
+
+const clear = document.getElementById('clear');
+
+clear.addEventListener('click', () => {
+    for (let i = 0; i < originalArray.length; i++) {
+        originalArray[i].style.backgroundColor = "rgba(0, 0, 0, 0)";
+        };
+    });
