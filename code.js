@@ -92,6 +92,16 @@ btnSquareNum.addEventListener('click', () => {
             };
         });
 
+    const erase = document.getElementById('erase');
+
+    erase.addEventListener('click', () => {
+        for (let i = 0; i < newArray.length; i++) {
+            newArray[i].addEventListener("mouseover", function() {
+                this.style.backgroundColor = "rgba(0, 0, 0, 0)";
+            });
+        }
+    });
+
 });
 
 // Change color to black when hovering
@@ -110,3 +120,13 @@ clear.addEventListener('click', () => {
         originalArray[i].style.backgroundColor = "rgba(0, 0, 0, 0)";
         };
     });
+
+const erase = document.getElementById('erase');
+
+erase.addEventListener('click', () => {
+    for (let i = 0; i < originalArray.length; i++) {
+        originalArray[i].addEventListener("mouseover", function() {
+            this.style.backgroundColor = "rgba(0, 0, 0, 0)";
+        });
+    }
+});
