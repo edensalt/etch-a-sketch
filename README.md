@@ -4,6 +4,7 @@ Interactive Etch-a-Sketch for the Odin Project: Foundations course
 ## Skills demonstrated
 
 - JS functions, including if statements, do whiles, and for loops
+- JS arrays
 - DOM manipulation via JS
 - JS event listeners
 
